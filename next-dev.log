@@ -1,0 +1,26 @@
+
+> Pie-Tech@0.1.0 dev
+> next dev --port 3001
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+
+ ✓ Starting...
+ ✓ Ready in 2.3s
+ ○ Compiling / ...
+ ✓ Compiled / in 3.2s (1319 modules)
+ GET / 200 in 3728ms
+ ✓ Compiled in 673ms (665 modules)
+ ○ Compiling /about ...
+ ✓ Compiled /about in 3s (2492 modules)
+ GET /about 200 in 3336ms
+ ✓ Compiled /services in 409ms (2506 modules)
+ GET /services 200 in 544ms
+ ○ Compiling /approach ...
+ ✓ Compiled /approach in 726ms (2520 modules)
+ GET /approach 200 in 835ms
+ ○ Compiling /contact ...
+ ✓ Compiled /contact in 812ms (2536 modules)
+ GET /contact 200 in 902ms
+ GET / 200 in 235ms
+ GET / 200 in 235ms
