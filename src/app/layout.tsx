@@ -10,8 +10,7 @@ import "@/shared/styles/globals.scss";
 
 export const metadata: Metadata = {
   title: "Pie Tech Solutions",
-  description:
-    "Marketing and technology solutions for modern brands.",
+  description: "Marketing and technology solutions for modern brands.",
   icons: {
     icon: "/favicon.svg",
   },
@@ -26,31 +25,19 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen overflow-x-hidden bg-black text-white">
         <ThemeProvider>
-
-          {/* =========================================
-              GLOBAL SHADOW CURSOR
-              Available on every page
-          ========================================= */}
+          {/* Global Shadow Cursor */}
           <ShadowCursor />
 
-          {/* =========================================
-              WEBSITE CONTENT
-          ========================================= */}
+          {/* Website */}
           <div className="relative z-10 min-h-screen">
-
-            {/* Header */}
             <Header />
 
-            {/* Pages */}
             <main className="min-h-screen pt-[80px]">
               {children}
             </main>
 
-            {/* Footer */}
             <Footer />
-
           </div>
-
         </ThemeProvider>
       </body>
     </html>
