@@ -23,7 +23,7 @@ export default function Footer() {
       className="
       border-t
       border-white/10 text-white
-      bg-gradient-to-br from-black via-gray-900 to-black
+      bg-gradient-to-br from-black marker:selection:bg-slate-50
       "
     >
       <div

@@ -1,110 +1,58 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import ThemeProvider from '@/components/ThemeProvider';
-import ShadowCursor from '@/components/ui/ShadowCursor';
+import ThemeProvider from "@/components/ThemeProvider";
+import ShadowCursor from "@/components/ui/ShadowCursor";
 
-import Footer from '@/widgets/Footer';
-import Header from '@/widgets/Header';
+import Footer from "@/widgets/Footer";
+import Header from "@/widgets/Header";
 
-import '@/shared/styles/globals.scss';
+import "@/shared/styles/globals.scss";
 
 export const metadata: Metadata = {
-  title: 'Pie Tech Solutions',
-  description: 'Marketing and technology solutions for modern brands.',
+  title: "Pie Tech Solutions",
+  description:
+    "Marketing and technology solutions for modern brands.",
   icons: {
-    icon: '/favicon.svg',
+    icon: "/favicon.svg",
   },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`
-        bg-black text-white
-        transition-colors duration-300`}
-      >
+      <body className="min-h-screen overflow-x-hidden bg-black text-white">
         <ThemeProvider>
-          <Header />
 
+          {/* =========================================
+              GLOBAL SHADOW CURSOR
+              Available on every page
+          ========================================= */}
           <ShadowCursor />
 
-          <main className="min-h-screen bg-black pt-[80px] text-white">
-            {children}
-          </main>
+          {/* =========================================
+              WEBSITE CONTENT
+          ========================================= */}
+          <div className="relative z-10 min-h-screen">
 
-          <Footer />
+            {/* Header */}
+            <Header />
+
+            {/* Pages */}
+            <main className="min-h-screen pt-[80px]">
+              {children}
+            </main>
+
+            {/* Footer */}
+            <Footer />
+
+          </div>
+
         </ThemeProvider>
       </body>
     </html>
   );
 }
-
-
-
-// 'use client';
-
-// import Lenis from 'lenis';
-// import { Montserrat } from 'next/font/google';
-// import { useEffect } from 'react';
-
-// import ShadowCursor from '@/components/ui/ShadowCursor';
-// import Footer from '@/widgets/Footer';
-// import Header from '@/widgets/Header';
-
-// import '@/shared/styles/globals.scss';
-
-// const montserrat = Montserrat({
-//   subsets: ['latin'],
-//   weight: ['300', '400', '500', '600', '700'],
-// });
-
-// export default function RootLayout({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) {
-//   useEffect(() => {
-//     const lenis = new Lenis({
-//       lerp: 0.08, // smoothness control (valid option)
-//     });
-
-//     let rafId: number;
-
-//     const raf = (time: number) => {
-//       lenis.raf(time);
-//       rafId = requestAnimationFrame(raf);
-//     };
-
-//     rafId = requestAnimationFrame(raf);
-
-//     return () => {
-//       cancelAnimationFrame(rafId);
-//       lenis.destroy();
-//     };
-//   }, []);
-
-//   return (
-//     <html lang="en">
-//       <body className={montserrat.className}>
-//         {/* GLOBAL HEADER */}
-//         <Header />
-
-//         {/* GLOBAL CURSOR */}
-//         <ShadowCursor />
-
-//         {/* PAGE CONTENT */}
-//         <main className="pt-[80px] min-h-screen">
-//           {children}
-//         </main>
-
-//         {/* GLOBAL FOOTER */}
-//         <Footer />
-//       </body>
-//     </html>
-//   );
-// }

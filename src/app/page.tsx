@@ -9,7 +9,7 @@ import FinalCTA from '@/widgets/FinalCTA';
 
 export default function Home() {
   return (
-    <main className="" >
+    <main>
       <Hero />
       <About />
       <Services />
