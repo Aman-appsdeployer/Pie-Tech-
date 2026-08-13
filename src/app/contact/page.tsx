@@ -107,7 +107,7 @@ function ContactHero() {
             md:text-7xl
           "
         >
-          Let's Build Something{" "}
+          Let&apos;s Build Something{" "}
           <span
             className="
               bg-gradient-to-r
@@ -389,7 +389,7 @@ function ContactInfo() {
       icon: <MapPin size={24} />,
       title: "Visit Our Office",
       value: "Kolkata, West Bengal, India",
-      desc: "Let's discuss your next big idea in person.",
+      desc: " Let&apos;s discuss your next big idea in person.",
       color: "from-purple-500 to-pink-500",
     },
   ];
@@ -531,7 +531,7 @@ function ContactInfo() {
         </h3>
 
         <p className="mt-3 text-gray-400">
-          Let's create innovative digital solutions that drive your business
+          Let&apos;s create innovative digital solutions that drive your business
           forward.
         </p>
 

@@ -434,11 +434,11 @@ export default function ApproachPage() {
 
             <div className="relative z-10">
               <span className="text-sm font-semibold uppercase tracking-[0.2em] text-black/60">
-                Let's Build Together
+                Let&apos;s Build Together
               </span>
 
               <h3 className="mt-4 text-2xl font-bold leading-tight text-black sm:text-3xl md:text-4xl lg:text-5xl">
-                Let’s Turn Your Idea Into a{' '}
+                LetLet&apos;ss Turn Your Idea Into a{' '}
                 <span className="underline decoration-black/20">High-Growth Business 🚀</span>
               </h3>
 

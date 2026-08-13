@@ -3,9 +3,9 @@
 import clsx from 'clsx';
 import {
   motion,
+  MotionValue,
   useScroll,
   useTransform,
-  MotionValue,
 } from 'framer-motion';
 import { useRef } from 'react';
 
