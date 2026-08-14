@@ -25,7 +25,7 @@ export default function ScrollHighlightText({
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 0.8', 'end 0.2'],
+    offset: ['start 0.9', 'end 0.2'],
   });
 
   return (

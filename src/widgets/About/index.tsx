@@ -1,7 +1,3 @@
-
-
-
-
 'use client';
 
 import ScrollHighlightText from '@/components/ui/scroll/ScrollHighlightText';
@@ -23,7 +19,7 @@ export default function About() {
     <section
       className="
         relative overflow-hidden
-        border-y border-white/[0.06]
+        border-y border-white/[0.08]
         bg-[#050505] text-white
         px-5 py-16
         sm:px-8
@@ -32,7 +28,16 @@ export default function About() {
       "
     >
       {/* Background Glow */}
-      <div className="pointer-events-none absolute -left-32 top-0 h-80 w-80 rounded-full bg-orange-500/10 blur-[100px]" />
+      <div
+        className="
+          pointer-events-none
+          absolute -left-32 top-0
+          h-80 w-80
+          rounded-full
+          bg-orange-500/10
+          blur-[100px]
+        "
+      />
 
       {/* Small Heading */}
       <p
@@ -62,7 +67,6 @@ export default function About() {
               font-serif
               text-[5.4vw]
               leading-[1.22]
-              text-white
               sm:text-[4.7vw]
               md:text-[3.2vw]
               lg:text-[2.65vw]
