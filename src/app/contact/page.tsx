@@ -1,20 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Clock,
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-  ShieldCheck,
-  Sparkles,
-  Users,
-} from "lucide-react";
-
-/* =========================================================
-   ANIMATION
-========================================================= */
+import { Clock, Mail, MapPin, Phone, Send, ShieldCheck, Sparkles, Users } from "lucide-react";
 
 const fadeUp = {
   hidden: {
@@ -27,14 +14,9 @@ const fadeUp = {
   },
 };
 
-/* =========================================================
-   CONTACT HERO
-========================================================= */
-
 function ContactHero() {
   return (
     <section className="relative overflow-hidden py-24 md:py-36">
-      {/* Orange Glow */}
       <div
         className="
           pointer-events-none
@@ -137,7 +119,7 @@ function ContactHero() {
             md:text-xl
           "
         >
-          Whether you're launching a startup, scaling your business, or
+          Whether you&apos;re launching a startup, scaling your business, or
           transforming digitally, our team is here to help you create secure,
           scalable, and high-performance solutions.
         </motion.p>
@@ -198,9 +180,7 @@ function ContactHero() {
   );
 }
 
-/* =========================================================
-   WHY CONTACT US
-========================================================= */
+
 
 function WhyContactUs() {
   const points = [
@@ -364,11 +344,6 @@ function WhyContactUs() {
     </section>
   );
 }
-
-/* =========================================================
-   CONTACT INFORMATION
-========================================================= */
-
 function ContactInfo() {
   const info = [
     {
@@ -389,7 +364,7 @@ function ContactInfo() {
       icon: <MapPin size={24} />,
       title: "Visit Our Office",
       value: "Kolkata, West Bengal, India",
-      desc: " Let&apos;s discuss your next big idea in person.",
+      desc: " Let\'s discuss your next big idea in person.",
       color: "from-purple-500 to-pink-500",
     },
   ];
@@ -421,7 +396,7 @@ function ContactInfo() {
         </span>
 
         <h2 className="mt-5 text-4xl font-bold text-white">
-          We'd Love to{" "}
+          We&apos;d Love to{" "}
           <span
             className="
               bg-gradient-to-r
@@ -557,11 +532,6 @@ function ContactInfo() {
     </div>
   );
 }
-
-/* =========================================================
-   CONTACT FORM
-========================================================= */
-
 function ContactForm() {
   return (
     <motion.form
@@ -684,9 +654,7 @@ function ContactForm() {
   );
 }
 
-/* =========================================================
-   MAP
-========================================================= */
+
 
 function MapSection() {
   return (
@@ -742,22 +710,11 @@ function MapSection() {
   );
 }
 
-/* =========================================================
-   PAGE
-========================================================= */
+
 
 export default function ContactPage() {
   return (
-    /*
-      IMPORTANT:
-      Do NOT use bg-black here.
-
-      The global ShadowCursor is already mounted
-      inside app/layout.tsx.
-
-      Keeping this page transparent allows the
-      cursor canvas to remain visible.
-    */
+  
     <main className="relative min-h-screen text-white">
       <ContactHero />
 
