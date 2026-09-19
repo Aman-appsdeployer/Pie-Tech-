@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Code2, Megaphone, PenTool } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { ArrowUpRight, Code2, Megaphone, PenTool } from 'lucide-react';
 
 const serviceCards: {
   title: string;

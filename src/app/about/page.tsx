@@ -15,6 +15,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 /* =========================================================
    GLOBE
@@ -41,9 +42,11 @@ const fadeUp = {
     opacity: 0,
     y: 40,
   },
+
   visible: {
     opacity: 1,
     y: 0,
+
     transition: {
       duration: 0.65,
       ease: [0.22, 1, 0.36, 1],
@@ -53,6 +56,7 @@ const fadeUp = {
 
 const stagger = {
   hidden: {},
+
   visible: {
     transition: {
       staggerChildren: 0.12,
@@ -72,15 +76,21 @@ function GlobeHero() {
         min-h-[680px]
         w-full
         overflow-hidden
-        bg-[#020303]
         md:min-h-[780px]
       "
     >
       {/* =====================================================
-          BACKGROUND GLOW
+          AMBIENT BACKGROUND GLOW
+
+          IMPORTANT:
+          No solid background here.
+          This allows the global ShadowCursor effect
+          to remain visible.
       ===================================================== */}
 
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 z-0">
+        {/* Main orange glow */}
+
         <div
           className="
             absolute
@@ -94,6 +104,8 @@ function GlobeHero() {
             blur-[150px]
           "
         />
+
+        {/* Bottom orange glow */}
 
         <div
           className="
@@ -112,22 +124,8 @@ function GlobeHero() {
 
       {/* =====================================================
           GLOBE
-      ===================================================== */}
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          z-0
-          opacity-90
-        "
-      >
-        <World globeConfig={globeConfig} />
-      </div>
-
-      {/* =====================================================
-          DARK OVERLAY
+          Keep transparent so ShadowCursor remains visible.
       ===================================================== */}
 
       <div
@@ -136,6 +134,25 @@ function GlobeHero() {
           absolute
           inset-0
           z-[1]
+          opacity-90
+        "
+      >
+        <World globeConfig={globeConfig} />
+      </div>
+
+      {/* =====================================================
+          GLOBE OVERLAY
+
+          This is transparent in the center and only adds
+          subtle darkness around the edges.
+      ===================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          z-[2]
           bg-[radial-gradient(circle_at_center,transparent_10%,rgba(2,3,3,.18)_55%,rgba(2,3,3,.72)_100%)]
         "
       />
@@ -167,7 +184,9 @@ function GlobeHero() {
           variants={stagger}
           className="max-w-5xl"
         >
-          {/* Badge */}
+          {/* =================================================
+              BADGE
+          ================================================= */}
 
           <motion.div
             variants={fadeUp}
@@ -180,7 +199,7 @@ function GlobeHero() {
               rounded-full
               border
               border-white/10
-              bg-black/35
+              bg-black/20
               px-4
               py-2
               text-xs
@@ -200,7 +219,9 @@ function GlobeHero() {
             About Pie Tech Solutions
           </motion.div>
 
-          {/* Heading */}
+          {/* =================================================
+              HEADING
+          ================================================= */}
 
           <motion.h1
             variants={fadeUp}
@@ -233,7 +254,9 @@ function GlobeHero() {
             Digital Enterprise
           </motion.h1>
 
-          {/* Description */}
+          {/* =================================================
+              DESCRIPTION
+          ================================================= */}
 
           <motion.p
             variants={fadeUp}
@@ -257,6 +280,9 @@ function GlobeHero() {
 
       {/* =====================================================
           BOTTOM FADE
+
+          Kept subtle so it doesn't completely cover
+          the cursor background.
       ===================================================== */}
 
       <div
@@ -269,8 +295,8 @@ function GlobeHero() {
           h-48
           w-full
           bg-gradient-to-t
-          from-[#020303]
-          via-[#020303]/80
+          from-black/20
+          via-black/10
           to-transparent
         "
       />
@@ -304,6 +330,7 @@ function StatsSection() {
   return (
     <section className="relative z-10 py-20 sm:py-24 md:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+
         {/* Heading */}
 
         <motion.div
@@ -356,6 +383,8 @@ function StatsSection() {
                 hover:bg-white/[0.07]
               "
             >
+              {/* Card glow */}
+
               <div
                 className="
                   pointer-events-none
@@ -427,6 +456,7 @@ function ProcessSection() {
   return (
     <section className="relative z-10 py-20 sm:py-24 md:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+
         {/* Heading */}
 
         <motion.div
@@ -460,7 +490,7 @@ function ProcessSection() {
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-80px" }}
           className="grid gap-6 md:grid-cols-2"
         >
           {steps.map((step, index) => (
@@ -501,6 +531,7 @@ function ProcessSection() {
               </div>
 
               <div className="relative z-10">
+
                 {/* Icon */}
 
                 <div
@@ -523,9 +554,13 @@ function ProcessSection() {
                   {step.icon}
                 </div>
 
+                {/* Title */}
+
                 <h3 className="text-xl font-semibold text-white sm:text-2xl">
                   {step.title}
                 </h3>
+
+                {/* Description */}
 
                 <p className="mt-3 text-sm leading-7 text-gray-400 sm:text-base">
                   {step.desc}
@@ -547,6 +582,7 @@ function MissionVision() {
   return (
     <section className="relative z-10 py-20 sm:py-24 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:px-6 lg:grid-cols-2 lg:px-8">
+
         {/* Mission */}
 
         <motion.article
@@ -698,6 +734,7 @@ function ServicesGrid() {
   return (
     <section className="relative z-10 py-20 sm:py-24 md:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+
         {/* Heading */}
 
         <motion.div
@@ -823,6 +860,7 @@ function CTASection() {
         </div>
 
         <div className="relative z-10">
+
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-black/60 sm:text-sm">
             Let&apos;s Work Together
           </span>
@@ -837,7 +875,7 @@ function CTASection() {
           </p>
 
           <div className="mt-8 flex justify-center">
-            <a
+            <Link
               href="/contact"
               className="
                 rounded-full
@@ -853,7 +891,7 @@ function CTASection() {
               "
             >
               Start a Project
-            </a>
+            </Link>
           </div>
         </div>
       </motion.div>
@@ -867,14 +905,83 @@ function CTASection() {
 
 export default function AboutPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#020303] text-white">
-      {/* Global background */}
+    <main
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        text-white
+      "
+    >
+      {/* =====================================================
+          GLOBAL AMBIENT BACKGROUND
 
-      <div className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
-        <div className="absolute left-[-200px] top-[35%] h-[500px] w-[500px] rounded-full bg-orange-500/[0.035] blur-[160px]" />
+          IMPORTANT:
+          No solid bg-black / bg-[#020303].
 
-        <div className="absolute right-[-200px] top-[60%] h-[500px] w-[500px] rounded-full bg-amber-400/[0.03] blur-[160px]" />
+          This is the key change that allows the global
+          ShadowCursor / cursor background effect to appear
+          exactly like the Services page.
+      ===================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          -z-10
+          overflow-hidden
+        "
+      >
+        <div
+          className="
+            absolute
+            left-[-200px]
+            top-[35%]
+            h-[500px]
+            w-[500px]
+            rounded-full
+            bg-orange-500/[0.035]
+            blur-[160px]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            right-[-200px]
+            top-[60%]
+            h-[500px]
+            w-[500px]
+            rounded-full
+            bg-amber-400/[0.03]
+            blur-[160px]
+          "
+        />
+
+        {/* Center subtle glow */}
+
+        <div
+          className="
+            absolute
+            left-1/2
+            top-[45%]
+            h-[450px]
+            w-[450px]
+            -translate-x-1/2
+            rounded-full
+            bg-orange-500/[0.025]
+            blur-[170px]
+          "
+        />
       </div>
+
+      {/* =====================================================
+          PAGE CONTENT
+
+          z-10 keeps content above the ambient background
+          without covering the global cursor effect.
+      ===================================================== */}
 
       <div className="relative z-10">
         <GlobeHero />
@@ -887,6 +994,18 @@ export default function AboutPage() {
     </main>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
